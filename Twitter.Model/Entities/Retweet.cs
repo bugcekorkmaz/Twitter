@@ -5,9 +5,9 @@ namespace Twitter.Model.Entities
 {
     public class Retweet : CoreEntity
     {
-        public Guid UserId { get; set; }
-        public User User { get; set; }
-        public int TweetId { get; set; }
-        public Tweet Tweet { get; set; }
+        public int UserID { get; set; }
+        public virtual User User { get; set; }
+        public int TweetID { get; set; }
+        public virtual Tweet Tweet { get; set; }
     }
 }

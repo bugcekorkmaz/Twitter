@@ -14,14 +14,14 @@ namespace Twitter.Model.Entities
         public string WebPage { get; set; }
         public string ProfileImage { get; set; }
         public string BannerImage { get; set; }
-        public string BirthDate { get; set; }
+        public DateTime BirthDate { get; set; }
         public string Email { get; set; }
         public bool IsFollowing { get; set; }
         public DateTime? LastLogin { get; set; }
         public DateTime? LastIPAddress { get; set; }
         public virtual List<Tweet> Tweets { get; set; }
         public virtual List<Follower> Followers { get; set; }
-        public virtual List<Followings> Followings { get; set; }
+        public virtual List<Following> Followings { get; set; }
         public virtual List<Like> Likes { get; set; }
         public virtual List<Media> Medias { get; set; }
     }

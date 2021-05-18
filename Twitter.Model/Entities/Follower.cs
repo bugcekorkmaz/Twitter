@@ -1,10 +1,11 @@
 ﻿using System;
+using Twitter.Core.Entity;
 
 namespace Twitter.Model.Entities
 {
-    public class Follower
+    public class Follower : CoreEntity
     {
-        public Guid UserId { get; set; }
-        public User User { get; set; }
+        public int UserID { get; set; }
+        public virtual User User { get; set; }
     }
 }
