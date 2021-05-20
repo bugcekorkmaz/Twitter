@@ -43,7 +43,7 @@ namespace Twitter.Model.Migrations
                 columns: table => new
                 {
                     ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserID = table.Column<int>(type: "int", nullable: false),
+                    UserID = table.Column<int>(type: "int", nullable: true),
                     UserID1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     Status = table.Column<int>(type: "int", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -69,7 +69,7 @@ namespace Twitter.Model.Migrations
                 columns: table => new
                 {
                     ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserID = table.Column<int>(type: "int", nullable: false),
+                    UserID = table.Column<int>(type: "int", nullable: true),
                     UserID1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     Status = table.Column<int>(type: "int", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -96,7 +96,7 @@ namespace Twitter.Model.Migrations
                 {
                     ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     MediaUrl = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true),
-                    UserID = table.Column<int>(type: "int", nullable: false),
+                    UserID = table.Column<int>(type: "int", nullable: true),
                     UserID1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     Status = table.Column<int>(type: "int", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -127,7 +127,8 @@ namespace Twitter.Model.Migrations
                     LikeCount = table.Column<int>(type: "int", nullable: false),
                     ReTweetCount = table.Column<int>(type: "int", nullable: false),
                     CommentCount = table.Column<int>(type: "int", nullable: false),
-                    UserID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserID = table.Column<int>(type: "int", nullable: true),
+                    UserID1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     Status = table.Column<int>(type: "int", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedComputerName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
@@ -140,11 +141,11 @@ namespace Twitter.Model.Migrations
                 {
                     table.PrimaryKey("PK_Tweets", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Tweets_Users_UserID",
-                        column: x => x.UserID,
+                        name: "FK_Tweets_Users_UserID1",
+                        column: x => x.UserID1,
                         principalTable: "Users",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -153,9 +154,9 @@ namespace Twitter.Model.Migrations
                 {
                     ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CommentText = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UserID = table.Column<int>(type: "int", nullable: false),
+                    UserID = table.Column<int>(type: "int", nullable: true),
                     UserID1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    TweetID = table.Column<int>(type: "int", nullable: false),
+                    TweetID = table.Column<int>(type: "int", nullable: true),
                     TweetID1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     Status = table.Column<int>(type: "int", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -187,9 +188,9 @@ namespace Twitter.Model.Migrations
                 columns: table => new
                 {
                     ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserID = table.Column<int>(type: "int", nullable: false),
+                    UserID = table.Column<int>(type: "int", nullable: true),
                     UserID1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    TweetID = table.Column<int>(type: "int", nullable: false),
+                    TweetID = table.Column<int>(type: "int", nullable: true),
                     TweetID1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     Status = table.Column<int>(type: "int", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -221,9 +222,9 @@ namespace Twitter.Model.Migrations
                 columns: table => new
                 {
                     ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserID = table.Column<int>(type: "int", nullable: false),
+                    UserID = table.Column<int>(type: "int", nullable: true),
                     UserID1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    TweetID = table.Column<int>(type: "int", nullable: false),
+                    TweetID = table.Column<int>(type: "int", nullable: true),
                     TweetID1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     Status = table.Column<int>(type: "int", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -296,9 +297,9 @@ namespace Twitter.Model.Migrations
                 column: "UserID1");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tweets_UserID",
+                name: "IX_Tweets_UserID1",
                 table: "Tweets",
-                column: "UserID");
+                column: "UserID1");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

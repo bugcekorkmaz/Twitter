@@ -10,7 +10,7 @@ using Twitter.Model.Context;
 namespace Twitter.Model.Migrations
 {
     [DbContext(typeof(TwitterContext))]
-    [Migration("20210518121942_Initial")]
+    [Migration("20210520110043_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -56,13 +56,13 @@ namespace Twitter.Model.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int>("TweetID")
+                    b.Property<int?>("TweetID")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("TweetID1")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("UserID")
+                    b.Property<int?>("UserID")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("UserID1")
@@ -108,7 +108,7 @@ namespace Twitter.Model.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserID")
+                    b.Property<int?>("UserID")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("UserID1")
@@ -152,7 +152,7 @@ namespace Twitter.Model.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserID")
+                    b.Property<int?>("UserID")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("UserID1")
@@ -196,13 +196,13 @@ namespace Twitter.Model.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int>("TweetID")
+                    b.Property<int?>("TweetID")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("TweetID1")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("UserID")
+                    b.Property<int?>("UserID")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("UserID1")
@@ -252,7 +252,7 @@ namespace Twitter.Model.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserID")
+                    b.Property<int?>("UserID")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("UserID1")
@@ -296,13 +296,13 @@ namespace Twitter.Model.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int>("TweetID")
+                    b.Property<int?>("TweetID")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("TweetID1")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("UserID")
+                    b.Property<int?>("UserID")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("UserID1")
@@ -365,12 +365,15 @@ namespace Twitter.Model.Migrations
                         .HasMaxLength(2000)
                         .HasColumnType("nvarchar(2000)");
 
-                    b.Property<Guid>("UserID")
+                    b.Property<int?>("UserID")
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("UserID1")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("ID");
 
-                    b.HasIndex("UserID");
+                    b.HasIndex("UserID1");
 
                     b.ToTable("Tweets");
                 });
@@ -541,9 +544,7 @@ namespace Twitter.Model.Migrations
                 {
                     b.HasOne("Twitter.Model.Entities.User", "User")
                         .WithMany("Tweets")
-                        .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserID1");
 
                     b.Navigation("User");
                 });

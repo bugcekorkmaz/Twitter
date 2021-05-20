@@ -54,13 +54,13 @@ namespace Twitter.Model.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int>("TweetID")
+                    b.Property<int?>("TweetID")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("TweetID1")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("UserID")
+                    b.Property<int?>("UserID")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("UserID1")
@@ -106,7 +106,7 @@ namespace Twitter.Model.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserID")
+                    b.Property<int?>("UserID")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("UserID1")
@@ -150,7 +150,7 @@ namespace Twitter.Model.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserID")
+                    b.Property<int?>("UserID")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("UserID1")
@@ -194,13 +194,13 @@ namespace Twitter.Model.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int>("TweetID")
+                    b.Property<int?>("TweetID")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("TweetID1")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("UserID")
+                    b.Property<int?>("UserID")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("UserID1")
@@ -250,7 +250,7 @@ namespace Twitter.Model.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserID")
+                    b.Property<int?>("UserID")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("UserID1")
@@ -294,13 +294,13 @@ namespace Twitter.Model.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int>("TweetID")
+                    b.Property<int?>("TweetID")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("TweetID1")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("UserID")
+                    b.Property<int?>("UserID")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("UserID1")
@@ -363,7 +363,7 @@ namespace Twitter.Model.Migrations
                         .HasMaxLength(2000)
                         .HasColumnType("nvarchar(2000)");
 
-                    b.Property<int>("UserID")
+                    b.Property<int?>("UserID")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("UserID1")
