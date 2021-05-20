@@ -15,6 +15,8 @@ namespace Twitter.Model.Maps
         public override void Configure(EntityTypeBuilder<Retweet> builder)
         {
             builder.ToTable("Retweets");
+            builder.Property(x => x.UserID);
+            builder.Property(x => x.TweetID);
             base.Configure(builder);
         }
     }

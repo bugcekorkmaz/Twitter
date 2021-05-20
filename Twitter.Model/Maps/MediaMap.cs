@@ -16,6 +16,7 @@ namespace Twitter.Model.Maps
         {
             builder.ToTable("Medias");
             builder.Property(x => x.MediaUrl).HasMaxLength(250).IsRequired(false);
+            builder.Property(x => x.UserID);
             base.Configure(builder);
         }
     }

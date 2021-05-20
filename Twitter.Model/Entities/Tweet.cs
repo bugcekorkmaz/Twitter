@@ -10,7 +10,7 @@ namespace Twitter.Model.Entities
         public int LikeCount { get; set; }
         public int ReTweetCount { get; set; }
         public int CommentCount { get; set; }
-        public Guid UserID { get; set; }
+        public int? UserID { get; set; }
         public virtual User User { get; set; }
     }
 }

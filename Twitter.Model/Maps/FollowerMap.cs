@@ -10,6 +10,7 @@ namespace Twitter.Model.Maps
         public override void Configure(EntityTypeBuilder<Follower> builder)
         {
             builder.ToTable("Followers");
+            builder.Property(x => x.UserID);
             base.Configure(builder);
         }
     }

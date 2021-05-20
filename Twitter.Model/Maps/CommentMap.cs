@@ -16,6 +16,8 @@ namespace Twitter.Model.Maps
         {
             builder.ToTable("Comments");
             builder.Property(x => x.CommentText).IsRequired();      
+            builder.Property(x => x.UserID);      
+            builder.Property(x => x.TweetID);      
             base.Configure(builder);
         }
     }

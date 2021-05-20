@@ -15,6 +15,8 @@ namespace Twitter.Model.Maps
         public override void Configure(EntityTypeBuilder<Like> builder)
         {
             builder.ToTable("Likes");
+            builder.Property(x => x.UserID);
+            builder.Property(x => x.TweetID);
             base.Configure(builder);
         }
     }

@@ -15,6 +15,7 @@ namespace Twitter.Model.Maps
         public override void Configure(EntityTypeBuilder<Tweet> builder)
         {
             builder.ToTable("Tweets");
+            builder.Property(x => x.UserID);
             builder.Property(x => x.TweetText).HasMaxLength(2000).IsRequired(true);
             builder.Property(x => x.SendTime).IsRequired(true);
             builder.Property(x => x.LikeCount).IsRequired(true);
