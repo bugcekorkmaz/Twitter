@@ -4,7 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Twitter.Core.Services;
 using Twitter.Model.Context;
+using Twitter.Service;
 
 namespace Twitter
 {
@@ -24,6 +26,9 @@ namespace Twitter
             //DbContext
             services.AddDbContext<TwitterContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("twitter")));
+
+            //Service Injection
+            services.AddScoped(typeof(ICoreService<>), typeof(BaseService<>));
 
         }
 

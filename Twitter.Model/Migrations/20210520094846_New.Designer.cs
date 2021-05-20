@@ -10,7 +10,7 @@ using Twitter.Model.Context;
 namespace Twitter.Model.Migrations
 {
     [DbContext(typeof(TwitterContext))]
-    [Migration("20210520073436_New")]
+    [Migration("20210520094846_New")]
     partial class New
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -56,13 +56,13 @@ namespace Twitter.Model.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int?>("TweetID")
+                    b.Property<int>("TweetID")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("TweetID1")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("UserID")
+                    b.Property<int>("UserID")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("UserID1")
@@ -108,7 +108,7 @@ namespace Twitter.Model.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int?>("UserID")
+                    b.Property<int>("UserID")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("UserID1")
@@ -152,7 +152,7 @@ namespace Twitter.Model.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int?>("UserID")
+                    b.Property<int>("UserID")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("UserID1")
@@ -196,10 +196,13 @@ namespace Twitter.Model.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<Guid?>("TweetID")
+                    b.Property<int>("TweetID")
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("TweetID1")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("UserID")
+                    b.Property<int>("UserID")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("UserID1")
@@ -207,7 +210,7 @@ namespace Twitter.Model.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("TweetID");
+                    b.HasIndex("TweetID1");
 
                     b.HasIndex("UserID1");
 
@@ -249,7 +252,7 @@ namespace Twitter.Model.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int?>("UserID")
+                    b.Property<int>("UserID")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("UserID1")
@@ -293,13 +296,13 @@ namespace Twitter.Model.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int?>("TweetID")
+                    b.Property<int>("TweetID")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("TweetID1")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("UserID")
+                    b.Property<int>("UserID")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("UserID1")
@@ -362,7 +365,7 @@ namespace Twitter.Model.Migrations
                         .HasMaxLength(2000)
                         .HasColumnType("nvarchar(2000)");
 
-                    b.Property<int?>("UserID")
+                    b.Property<int>("UserID")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("UserID1")
@@ -502,7 +505,7 @@ namespace Twitter.Model.Migrations
                 {
                     b.HasOne("Twitter.Model.Entities.Tweet", "Tweet")
                         .WithMany()
-                        .HasForeignKey("TweetID");
+                        .HasForeignKey("TweetID1");
 
                     b.HasOne("Twitter.Model.Entities.User", "User")
                         .WithMany("Likes")

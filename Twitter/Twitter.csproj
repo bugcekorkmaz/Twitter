@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Twitter.Model\Twitter.Model.csproj" />
+    <ProjectReference Include="..\Twitter.Service\Twitter.Service.csproj" />
   </ItemGroup>
 
 </Project>
