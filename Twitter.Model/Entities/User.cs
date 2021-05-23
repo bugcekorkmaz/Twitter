@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using Twitter.Core.Entity;
 
 namespace Twitter.Model.Entities
@@ -24,5 +25,8 @@ namespace Twitter.Model.Entities
         public virtual List<Following> Followings { get; set; }
         public virtual List<Like> Likes { get; set; }
         public virtual List<Media> Medias { get; set; }
+
+        [NotMapped]
+        public string UserNameOrEmail { get; set; }
     }
 }

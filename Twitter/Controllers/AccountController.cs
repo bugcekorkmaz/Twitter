@@ -32,12 +32,13 @@ namespace Twitter.Controllers
         public async Task<IActionResult> Login(User user)
         {
 
-            if (userService.Any(x => x.Email == user.Email
+            if (userService.Any(x => (x.Email == user.UserNameOrEmail || x.Username == user.UserNameOrEmail)
             && x.Password == user.Password && x.Status == Status.Active))
             {
-        
+
                 User logged = userService.GetByDefaults(
-                    x => x.Email == user.Email && x.Password == user.Password);
+                   x => (x.Email == user.UserNameOrEmail || x.Username == user.UserNameOrEmail)
+            && x.Password == user.Password);
 
                 var claims = new List<Claim>()
                 {
@@ -48,7 +49,7 @@ namespace Twitter.Controllers
                 var userIdentity = new ClaimsIdentity(claims, "login");
                 ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
                 await HttpContext.SignInAsync(principal);
-                return RedirectToAction("Index", "Home", new { area = "Administrator" });
+                return RedirectToAction("Home", "Twitter");
             }
             else
             {
@@ -56,7 +57,42 @@ namespace Twitter.Controllers
             }
             return View();
         }
+
+        [HttpGet]
+        public IActionResult SignUpOrLogin()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult SignUpOrLogin(User user)
+        {
+            if (ModelState.IsValid)
+            {
+                if (!userService.Any(x => x.Email == user.Email))
+                {
+                    if (userService.Add(user))
+                    {
+                        return RedirectToAction("Login", "Account");
+                    }
+                    else
+                    {
+                        TempData["Message"] = "Kayıt işlemi sırasında bir hata oluştu. Lütfen tüm alanları kontrol edip, tekrar deneyiniz.";
+                    }
+                }
+                else
+                {
+                    TempData["Message"] = "Kayıtlı e-posta adresi girdiniz. Lütfen farklı bir e-posta adresi giriniz.";
+                }
+            }
+            else
+            {
+                TempData["Message"] = "İşlem başarısız oldu.";
+            }
+            return View(user);
+        }
+
     }
 
-       
+
 }
