@@ -1,6 +1,9 @@
 ﻿@using Twitter.Models;
 @using Microsoft.AspNetCore.Http;
 
+
+@model Tweet
+
 @{
     Layout = null;
 }
@@ -93,7 +96,7 @@
                         </div>
                         <div class="row mt-2">
                             <div class="col-12">
-                                <a asp-controller="twitter" asp-action="profile" class="mdc-list-item rounded-pill changecolor">
+                                <a class="mdc-list-item rounded-pill changecolor">
                                     <span class="mdc-list-item__ripple"></span>
                                     <i class="far fa-user fa-2x"></i>
                                     <span class="mdc-list-item__text  ml-4 setFont">Profile </span>
@@ -153,7 +156,10 @@
                             <div class="input-group-prepend">
                                 <img src="~/img/profil.png" alt="" style="border-radius:100%;">
                             </div>
-                            <input type="text" id="TwitterText" class="form-control ml-2 setFont2" style=" border: none; box-shadow: none;" placeholder="What's happening?" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            <input type="text" id="TwitterText" class="form-control ml-2 setFont2"
+                                   style=" border: none; box-shadow: none;" placeholder="What's happening?"
+                                   aria-label="Example text with button addon" aria-describedby="button-addon1"
+                                  >
                         </div>
                         <hr>
                         <div style="display: flex; float: left;">
@@ -186,14 +192,14 @@
                             </div>
                         </div>
                         <div class="ml-4" style="float: right;">
-                            <button type="button" onclick="Post()" class="btn btn-block rounded-pill "
+                            <button type="button" class="btn btn-block rounded-pill "
                                     style="color:white; background-color:#1DA1F2; text-align: center; width: auto; box-shadow: none; ">
                                 Tweet
                             </button>
                         </div>
                     </div>
                 </div>
-                @*<partial name="PartialViews/TweetPartial" />*@
+                @*<partial name="PartialViews/_TweetPartial" />*@
                 <!-- Ortanın 3.alanı -->
                 <!-- Ortanın 4. alanı -->
                 <!-- Ortanın 8. alanı  Mobile bar -->
