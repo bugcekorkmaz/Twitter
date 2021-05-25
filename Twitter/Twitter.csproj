@@ -18,4 +18,8 @@
     <ProjectReference Include="..\Twitter.Service\Twitter.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\admin\assets\js\plugins\plugins-related\" />
+  </ItemGroup>
+
 </Project>

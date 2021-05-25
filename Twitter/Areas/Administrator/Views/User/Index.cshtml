@@ -1,0 +1,58 @@
+﻿@model List<User>
+
+@{
+    ViewData["Title"] = "Kullanıcılar";
+}
+
+<div class="content-body">
+    <div class="row justify-content-between align-items-center mb-10">
+        <div class="col-12 col-lg-auto mb-20">
+            <div class="page-heading">
+                <h3 class="title">List <span>/ User</span></h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 mb-30">
+            <div class="box">
+                <div class="box-head">
+                    <a class="btn btn-primary" asp-controller="User" asp-action="Insert">Yeni Kayıt</a>
+                </div>
+                <div class="box-body">
+                    <table class="table table-bordered data-table data-table-default">
+                        <thead>
+                            <tr>
+                                <th>UserName</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Status</th>
+                                <th>####</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (User item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Username</td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Email</td>
+                                    <td><partial name="PartialViews/_StatusPartial" model="item.Status" /></td>
+                                    <td>
+                                        <a class="btn" asp-controller="User" asp-action="Activate" asp-route-id="@item.ID">Activate</a>
+                                        <a class="btn" asp-controller="User" asp-action="Update" asp-route-id="@item.ID">Update</a>
+                                        <a class="btn" asp-controller="User" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/admin/assets/js/plugins/datatables/datatables.min.js"></script>
+    <script src="~/admin/assets/js/plugins/datatables/datatables.active.js"></script>
+}

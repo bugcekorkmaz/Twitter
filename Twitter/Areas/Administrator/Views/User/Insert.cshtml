@@ -1,0 +1,53 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Yönetici Ekleme Formu";
+}
+
+<div class="content-body">
+    <div class="row justify-content-between align-items-center mb-10">
+        <div class="col-12 col-lg-auto mb-20">
+            <div class="page-heading">
+                <h3>Yönetici <span>/ Add</span></h3>
+            </div>
+        </div>
+    </div>
+    <div class="add-edit-product-wrap col-12">
+        <div class="add-edit-product-form">
+            <form asp-controller="User" asp-action="Insert" method="post" enctype="multipart/form-data">
+                <h4 class="title">About User</h4>
+                <div class="row">
+                    <div class="col-lg-12 col-12 mb-30">
+                        <input class="form-control" type="text" placeholder="Username" asp-for="Username">
+                    </div>
+                    <br />
+                    <div class="col-lg-12 col-12 mb-30">
+                        <input class="form-control" type="text" placeholder="Name" asp-for="Name">
+                    </div>
+                    <br />
+                    <div class="col-lg-12 col-12 mb-30">
+                        <input class="form-control" type="text" placeholder="Email Address" asp-for="Email">
+                    </div>
+                    <br />
+                    <div class="col-lg-12 col-12 mb-30">
+                        <input class="form-control" type="text" placeholder="Password *" asp-for="Password">
+                    </div>
+                    <br />
+                    <div class="col-lg-12 col-12 mb-30">
+                        <input class="form-control" type="file" name="files">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="d-flex flex-wrap justify-content-end col mbn-10">
+                        <button class="button button-outline button-primary mb-10 ml-10 mr-0">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["Message"]
+        </div>
+    }
+</div>
