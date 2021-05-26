@@ -91,7 +91,11 @@ namespace Twitter.Controllers
             }
             return View(user);
         }
-
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Login", "Account");
+        }
     }
 
 
