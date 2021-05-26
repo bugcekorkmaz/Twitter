@@ -70,5 +70,52 @@ namespace Twitter.Areas.Administrator.Controllers
 
             return View(item);
         }
+        public IActionResult Delete(Guid id)
+        {
+            userService.Remove(userService.GetById(id));
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Activate(Guid id)
+        {
+            userService.Activate(id);
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Update(Guid id)
+        {
+            return View(userService.GetById(id));
+        }
+
+        [HttpPost]
+        public IActionResult Update(User item)
+        {
+            if (ModelState.IsValid)
+            {
+                User updated = userService.GetById(item.ID);
+                updated.Username = item.Username;
+                updated.Name = item.Name;
+                updated.Email = item.Email;
+                updated.Password = item.Password;
+
+                bool result = userService.Update(updated);
+                if (result)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    TempData["Message"] = "Güncelleme sırasında bir hata oluştu.";
+                }
+            }
+            else
+            {
+                TempData["Message"] = "İşlem başarısız oldu. Lütfen tüm alanları kontrol edin.";
+            }
+
+            return View();
+        }
     }
 }

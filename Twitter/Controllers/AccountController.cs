@@ -49,7 +49,7 @@ namespace Twitter.Controllers
                 var userIdentity = new ClaimsIdentity(claims, "login");
                 ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
                 await HttpContext.SignInAsync(principal);
-                return RedirectToAction("Home", "Twitter");
+                return RedirectToAction("HomeTweet", "Twitter");
             }
             else
             {
