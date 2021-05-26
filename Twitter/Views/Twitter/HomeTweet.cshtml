@@ -146,54 +146,59 @@
                     </div>
                 </div>
                 <!-- Ortanın 2.si -->
-                <div class="card">
-                    <div class="card-body">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <img src="~/img/profil.png" alt="" style="border-radius:100%;">
+                @using (Html.BeginForm(FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <img src="~/img/profil.png" alt="" style="border-radius:100%;">
+                                </div>
+
+                                <input 
+                                       type="text" id="TwitterText" class="form-control ml-2 setFont2"
+                                       style=" border: none; box-shadow: none;" placeholder="What's happening?"
+                                       aria-label="Example text with button addon" aria-describedby="button-addon1">
                             </div>
-                            <input type="text" id="TwitterText" class="form-control ml-2 setFont2"
-                                   style=" border: none; box-shadow: none;" placeholder="What's happening?"
-                                   aria-label="Example text with button addon" aria-describedby="button-addon1">
-                        </div>
-                        <hr>
-                        <div style="display: flex; float: left;">
-                            <div>
-                                <div class="changecolor">
+                            <hr>
+                            <div style="display: flex; float: left;">
+                                <div>
+                                    <div class="changecolor">
+                                        <a class="mdc-list-item  changecolor" style="border-radius: 100%;" href="#">
+                                            <i class="far fa-image fa-lg " style="color:#1DA1F2 ;" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div>
                                     <a class="mdc-list-item  changecolor" style="border-radius: 100%;" href="#">
-                                        <i class="far fa-image fa-lg " style="color:#1DA1F2 ;" aria-hidden="true"></i>
+                                        <i class="far fa-square fa-lg " style="color:#1DA1F2 ;" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a class="mdc-list-item  changecolor" style="border-radius: 100%;" href="#">
+                                        <i class="fas fa-poll-h fa-lg " style="color:#1DA1F2 ;" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a class="mdc-list-item  changecolor" style="border-radius: 100%;" href="#">
+                                        <i class="fas fa-smile fa-lg " style="color:#1DA1F2 ;" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a class="mdc-list-item  changecolor" style="border-radius: 100%;" href="#">
+                                        <i class="far fa-calendar-alt fa-lg" style="color:#1DA1F2 ;" aria-hidden="true"></i>
                                     </a>
                                 </div>
                             </div>
-                            <div>
-                                <a class="mdc-list-item  changecolor" style="border-radius: 100%;" href="#">
-                                    <i class="far fa-square fa-lg " style="color:#1DA1F2 ;" aria-hidden="true"></i>
-                                </a>
+                            <div class="ml-4" style="float: right;">
+                                <button asp-action="Profile" class="btn btn-block rounded-pill "
+                                        style="color:white; background-color:#1DA1F2; text-align: center; width: auto; box-shadow: none; ">
+                                    Tweet
+                                </button>
                             </div>
-                            <div>
-                                <a class="mdc-list-item  changecolor" style="border-radius: 100%;" href="#">
-                                    <i class="fas fa-poll-h fa-lg " style="color:#1DA1F2 ;" aria-hidden="true"></i>
-                                </a>
-                            </div>
-                            <div>
-                                <a class="mdc-list-item  changecolor" style="border-radius: 100%;" href="#">
-                                    <i class="fas fa-smile fa-lg " style="color:#1DA1F2 ;" aria-hidden="true"></i>
-                                </a>
-                            </div>
-                            <div>
-                                <a class="mdc-list-item  changecolor" style="border-radius: 100%;" href="#">
-                                    <i class="far fa-calendar-alt fa-lg" style="color:#1DA1F2 ;" aria-hidden="true"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="ml-4" style="float: right;">
-                            <button type="button" class="btn btn-block rounded-pill "
-                                    style="color:white; background-color:#1DA1F2; text-align: center; width: auto; box-shadow: none; ">
-                                Tweet
-                            </button>
                         </div>
                     </div>
-                </div>
+                }
                 @*<partial name="PartialViews/_TweetPartial" />*@
                 <!-- Ortanın 3.alanı -->
                 <!-- Ortanın 4. alanı -->

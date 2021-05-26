@@ -68,7 +68,7 @@ namespace Twitter
 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Twitter}/{action=HomeTweet}/{id?}");
+                    pattern: "{controller=Account}/{action=SignUpOrLogin}/{id?}");
             });
         }
     }
