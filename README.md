@@ -9,4 +9,4 @@ Context klasörü oluşturup TwitterContext sınıfı oluşturup, constructor ve
 Startup'ta ConfigureServices kısmında DbContext ve UseSqlServer methodunu yazdım.
 
 Son Hali
-Proje çalıştırıldığında signup ve login butonlarının olduğu SignUpOrLogin sayfası açılmakta. Modal kullanarak Signup butona tıklanıldığında kullanıcı kaydolma yapmakta. Sonrasında administrator sayfasına gittiğimizde o kullanıcıyı aktif hale getirip, administrator sayfasından çıkış yaparak login sayfasına yönlendirmekte ve kullanıcı giriş işlemini gerçekleştirdikten sonra home sayfasına yönlendirmekte.
+Proje çalıştırıldığında signup ve login butonlarının olduğu SignUpOrLogin sayfası açılmakta. Modal kullanarak yaptığım Signup butona tıklanıldığında kullanıcı kaydolma yapmakta. Sonrasında administrator sayfasına gittiğimizde o kullanıcıyı aktif hale getirip, administrator sayfasından çıkış yaparak login sayfasına yönlendirmekte ve kullanıcı giriş işlemini gerçekleştirdikten sonra home sayfasına yönlendirmekte.
